@@ -42,12 +42,11 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     const statsRow = await page.locator('tr.cat3').nth(4)
     const statNode = await statsRow.locator('td').nth(2)
     const statText = await statNode.evaluate((node) => node.innerText)
-    const stats = statText.substr(0, 3).trim()
 
     infoMessage('Sending desktop notification...')
     notifier.notify({
       title: `Auto Notification from ${DOMAIN}`,
-      message: `Your current ${DOMAIN} stats: ${stats}`
+      message: `Your current ${DOMAIN} stats: ${statText}`
     })
 
     infoMessage('Closing headless browser...')
