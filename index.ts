@@ -1,11 +1,11 @@
 import { config } from '@noshot/env'
+import notifier from 'node-notifier'
 import { chromium } from 'playwright'
 import { errorMessage, infoMessage } from '~loggers'
-import { writeFileResultsToFile } from '~utils'
 
 config({ paths: '.env' })
 
-const { LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = process.env
+const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = process.env
 
 /**
  * Automatically visits a website URL and retrieves some stats.
@@ -43,8 +43,11 @@ const { LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = process.env
     const statText = await statNode.evaluate((node) => node.innerText)
     const stats = statText.substr(0, 3).trim()
 
-    infoMessage('Writing stats to file...')
-    writeFileResultsToFile(stats)
+    infoMessage('Sending desktop notification...')
+    notifier.notify({
+      title: `Auto Notification from ${DOMAIN}`,
+      message: `Your current ${DOMAIN} stats: ${stats}`
+    })
 
     infoMessage('Closing headless browser...')
     await browser.close()
