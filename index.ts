@@ -52,7 +52,7 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     infoMessage('Closing headless browser...')
     await browser.close()
 
-    infoMessage('Successfully updated stats.')
+    infoMessage('Successfully displayed stats.')
     process.exit(0)
   } catch (err: any) {
     errorMessage(err.toString())
