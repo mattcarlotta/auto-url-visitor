@@ -28,7 +28,7 @@ const { LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = process.env
     infoMessage('Submitting login...')
     await page.click('button[type="submit"]')
 
-    infoMessage('Found results...')
+    infoMessage('Finding results...')
     await page.waitForSelector('div.results')
 
     infoMessage('Visiting profile...')
