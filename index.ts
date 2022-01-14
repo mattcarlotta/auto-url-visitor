@@ -1,11 +1,12 @@
 import { config } from '@noshot/env'
+import { env } from 'process'
 import notifier from 'node-notifier'
 import { chromium } from 'playwright'
 import { errorMessage, infoMessage } from '~loggers'
 
 config({ paths: '.env' })
 
-const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = process.env
+const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
 
 /**
  * Automatically visits a website URL and retrieves some stats.
