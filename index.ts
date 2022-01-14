@@ -4,7 +4,7 @@ import notifier from 'node-notifier'
 import { chromium } from 'playwright'
 import { errorMessage, infoMessage } from '~loggers'
 
-config({ paths: '.env' })
+config()
 
 const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
 
