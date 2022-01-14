@@ -1,0 +1,35 @@
+{
+  "name": "auto-url-visitor",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "description": "An automated service to visit a website.",
+  "repository": "",
+  "author": "Matt Carlotta",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "rimraf build && tsc --p ./tsconfig.prod.json",
+    "start": "node -r ./prod-paths.js build/index.js",
+    "dev": "nodemon",
+    "test": "ts-node --project ./tsconfig.json -r tsconfig-paths/register index.ts",
+    "types": "tsc --p ./tsconfig.json"
+  },
+  "dependencies": {
+    "@noshot/env": "^3.0.0",
+    "chalk": "4",
+    "lodash.get": "^4.4.2",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/lodash.get": "^4.4.6",
+    "@types/node": "^17.0.8",
+    "nodemon": "^2.0.15",
+    "playwright": "^1.17.2",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.0",
+    "ts-node": "^10.4.0"
+  }
+}

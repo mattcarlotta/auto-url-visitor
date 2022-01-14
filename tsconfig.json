@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "diagnostics": true,
+    "declaration": true,
+    "allowJs": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es6"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./build",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
+    "paths": {
+      "~loggers": ["loggers/index"],
+      "~utils": ["utils/index"]
+    }
+  },
+  "include": ["**/*.ts"],
+  "exclude": [".github", "build", "coverage", "node_modules"]
+}

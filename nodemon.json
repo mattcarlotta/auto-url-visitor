@@ -1,0 +1,6 @@
+{
+  "watch": ["**/*.ts"],
+  "ext": "ts",
+  "ignore": [".github", "build", "coverage", "node_modules"],
+  "exec": "ts-node --project ./tsconfig.json -r tsconfig-paths/register ./index.ts"
+}
