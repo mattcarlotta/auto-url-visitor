@@ -1,7 +1,7 @@
-const tsconfigpaths = require("tsconfig-paths");
-const tsConfig = require("./tsconfig.json");
+const tsconfigpaths = require('tsconfig-paths')
+const { compilerOptions } = require('./tsconfig.json')
 
 tsconfigpaths.register({
-  baseUrl: "./build",
-  paths: tsConfig.compilerOptions.paths
-});
+  baseUrl: compilerOptions.outDir,
+  paths: compilerOptions.paths
+})
