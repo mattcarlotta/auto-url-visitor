@@ -22,7 +22,8 @@
     "strict": true,
     "target": "es6",
     "paths": {
-      "~loggers": ["loggers/index"]
+      "~loggers": ["loggers/index"],
+      "~utils": ["utils/index"]
     }
   },
   "include": ["**/*.ts"],

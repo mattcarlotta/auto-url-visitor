@@ -3,6 +3,7 @@ import { env } from 'process'
 import notifier from 'node-notifier'
 import { chromium } from 'playwright'
 import { errorMessage, infoMessage } from '~loggers'
+import { writeFileResultsToFile } from '~utils'
 
 config()
 
@@ -29,9 +30,6 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     infoMessage('Submitting login...')
     await page.click('button[type="submit"]')
 
-    infoMessage('Finding results...')
-    await page.waitForSelector('div.results')
-
     infoMessage('Visiting profile...')
     await page.locator('div[title="Achievements"] > span.link').click()
 
@@ -46,8 +44,11 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     infoMessage('Sending desktop notification...')
     notifier.notify({
       title: `Auto Notification from ${DOMAIN}`,
-      message: `Your current ${DOMAIN} stats: ${statText}`
+      message: `Your current ${DOMAIN} stats: ${statText.trim()}`
     })
+
+    infoMessage('Writing stats to file...')
+    writeFileResultsToFile(statText.trim())
 
     infoMessage('Closing headless browser...')
     await browser.close()
@@ -56,6 +57,10 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     process.exit(0)
   } catch (err: any) {
     errorMessage(err.toString())
+    notifier.notify({
+      title: `Error Notification from ${DOMAIN}`,
+      message: err.toString()
+    })
     process.exit(1)
   }
 })()
