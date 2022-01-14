@@ -10,7 +10,7 @@ const statsFile = join(process.cwd(), 'stats.json')
  *
  * @returns a boolean;
  */
-export const resultsFileExists = () => {
+export const resultsFileExists = (): boolean => {
   try {
     return statSync(statsFile).isFile()
   } catch (e) {
@@ -23,7 +23,7 @@ export const resultsFileExists = () => {
  *
  * @returns the read result of the JSON file
  */
-export const readResultFile = () => {
+export const readResultFile = (): Record<string, unknown> => {
   const file = readFileSync(statsFile, { encoding: 'utf-8' })
 
   return JSON.parse(file)
@@ -34,7 +34,7 @@ export const readResultFile = () => {
  *
  * @throws an error if writing the stat fails
  */
-export const writeFileResultsToFile = (stat: string) => {
+export const writeFileResultsToFile = (stat: string): void => {
   try {
     let combinedFile = {}
     if (resultsFileExists()) combinedFile = readResultFile()

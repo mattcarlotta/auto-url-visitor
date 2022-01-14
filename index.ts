@@ -8,7 +8,7 @@ config({ paths: '.env' })
 const { LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = process.env
 
 /**
- * Automatically visits a URL to update visit stats.
+ * Automatically visits a website URL and retrieves some stats.
  */
 ;(async (): Promise<void> => {
   try {
@@ -16,7 +16,7 @@ const { LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = process.env
     const browser = await chromium.launch()
     const page = await browser.newPage()
 
-    infoMessage('Attempting to visit URL...')
+    infoMessage('Attempting to visit website URL...')
     await page.goto(URL_ADDRESS as string)
 
     infoMessage('Filling in username...')
@@ -34,10 +34,10 @@ const { LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = process.env
     infoMessage('Visiting profile...')
     await page.locator('div[title="Achievements"] > span.link').click()
 
-    infoMessage('Finding visitation stats...')
+    infoMessage('Finding stats...')
     await page.waitForSelector('table')
 
-    infoMessage('Parsing visitation stats...')
+    infoMessage('Parsing stats...')
     const statsRow = await page.locator('tr.cat3').nth(4)
     const statNode = await statsRow.locator('td').nth(2)
     const statText = await statNode.evaluate((node) => node.innerText)
