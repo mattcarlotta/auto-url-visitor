@@ -27,17 +27,3 @@ export const infoMessage = (message: string): void => {
     )}`
   )
 }
-
-/**
- * Helper function to log a warning to console.
- *
- * @function warnMessage
- * @param message - string;
- */
-export const warnMessage = (message: string): void => {
-  console.log(
-    `\n${chalk.rgb(255, 255, 255).bgRgb(201, 162, 4)(' WARN ')} ${chalk.yellow(
-      `${message}`
-    )}`
-  )
-}

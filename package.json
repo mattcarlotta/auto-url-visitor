@@ -1,17 +1,17 @@
 {
   "name": "auto-url-visitor",
-  "version": "0.0.3",
-  "main": "build/index.js",
+  "version": "0.1.0",
+  "main": "build/index.mjs",
   "description": "An automated service to visit a website.",
-  "repository": "",
+  "repository": "https://github.com/mattcarlotta/auto-url-visitor",
   "author": "Matt Carlotta",
   "license": "MIT",
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "build": "rimraf build && tsc --p ./tsconfig.prod.json",
-    "start": "node build/index.js",
+    "build": "rimraf build && rollup -c",
+    "start": "node build/index.mjs",
     "dev": "nodemon",
     "test": "ts-node --project ./tsconfig.json index.ts",
     "types": "tsc --p ./tsconfig.json"
@@ -29,6 +29,9 @@
     "playwright": "^1.17.2",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.0",
+    "rollup": "^2.64.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.1",
     "ts-node": "^10.4.0"
   }
 }

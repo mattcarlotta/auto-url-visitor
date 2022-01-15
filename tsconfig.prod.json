@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "noEmit": false
+    "module": "esnext",
+    "target": "esnext",
+    "noEmit": false,
+    "outDir": "./esm"
   },
   "extends": "./tsconfig.json"
 }
