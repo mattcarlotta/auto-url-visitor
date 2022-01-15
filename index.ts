@@ -1,8 +1,8 @@
 import { config } from '@noshot/env'
 import { chromium } from 'playwright'
 import { env } from 'process'
-import { errorMessage, infoMessage } from '~loggers'
-import { notify, writeFileResultsToFile } from '~utils'
+import { errorMessage, infoMessage } from './loggers'
+import { notify, writeFileResultsToFile } from './utils'
 
 config()
 

@@ -1,7 +1,7 @@
 import { readFileSync, statSync, writeFileSync } from 'fs'
 import { execSync } from 'child_process'
 import { join } from 'path'
-import { errorMessage } from '~loggers'
+import { errorMessage } from '../loggers'
 
 const statsFile = join(process.cwd(), 'stats.json')
 

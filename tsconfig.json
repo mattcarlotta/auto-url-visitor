@@ -20,11 +20,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es6",
-    "paths": {
-      "~loggers": ["loggers/index"],
-      "~utils": ["utils/index"]
-    }
+    "target": "es6"
   },
   "include": ["**/*.ts"],
   "exclude": [".github", "build", "coverage", "node_modules"]

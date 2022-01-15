@@ -11,16 +11,15 @@
   },
   "scripts": {
     "build": "rimraf build && tsc --p ./tsconfig.prod.json",
-    "start": "node -r ./prod-paths.js build/index.js",
+    "start": "node build/index.js",
     "dev": "nodemon",
-    "test": "ts-node --project ./tsconfig.json -r tsconfig-paths/register index.ts",
+    "test": "ts-node --project ./tsconfig.json index.ts",
     "types": "tsc --p ./tsconfig.json"
   },
   "dependencies": {
     "@noshot/env": "^3.0.0",
     "chalk": "4",
     "lodash.get": "^4.4.2",
-    "tsconfig-paths": "^3.12.0",
     "typescript": "^4.5.4"
   },
   "devDependencies": {
