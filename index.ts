@@ -1,9 +1,8 @@
 import { config } from '@noshot/env'
-import { env } from 'process'
-import notifier from 'node-notifier'
 import { chromium } from 'playwright'
+import { env } from 'process'
 import { errorMessage, infoMessage } from '~loggers'
-import { writeFileResultsToFile } from '~utils'
+import { notify, writeFileResultsToFile } from '~utils'
 
 config()
 
@@ -42,10 +41,10 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     const statText = await statNode.evaluate((node) => node.innerText)
 
     infoMessage('Sending desktop notification...')
-    notifier.notify({
-      title: `Auto Notification from ${DOMAIN}`,
-      message: `Your current ${DOMAIN} stats: ${statText.trim()}`
-    })
+    notify(
+      `Auto Notification from ${DOMAIN}`,
+      `Your current ${DOMAIN} stats: ${statText.trim()}`
+    )
 
     infoMessage('Writing stats to file...')
     writeFileResultsToFile(statText.trim())
@@ -57,10 +56,7 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     process.exit(0)
   } catch (err: any) {
     errorMessage(err.toString())
-    notifier.notify({
-      title: `Error Notification from ${DOMAIN}`,
-      message: err.toString()
-    })
+    notify(`Error Notification from ${DOMAIN}`, err.toString())
     process.exit(1)
   }
 })()

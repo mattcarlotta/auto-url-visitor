@@ -1,9 +1,19 @@
-import { statSync } from 'fs'
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, statSync, writeFileSync } from 'fs'
+import { execSync } from 'child_process'
 import { join } from 'path'
 import { errorMessage } from '~loggers'
 
 const statsFile = join(process.cwd(), 'stats.json')
+
+/**
+ * Sends an OS notification.
+ *
+ * @param title - title of the notification
+ * @param message - message body of the notification
+ */
+export const notify = (title: string, message: string): void => {
+  execSync(`DISPLAY=:0 notify-send '${title}' '${message}'`)
+}
 
 /**
  * Helper function to check if the `stats.json` file exists.
