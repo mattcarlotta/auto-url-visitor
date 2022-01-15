@@ -4,7 +4,7 @@ An automated service to visit a website using playwright.
 
 ### Requirements
 
-- Linux based OS system with the `notify-send` binary installed
+- Linux based OS with the `notify-send` binary installed
 
 ### Installation
 
