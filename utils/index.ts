@@ -13,7 +13,7 @@ const statsFile = join(process.cwd(), 'stats.json')
  */
 export const notify = (title: string, message: string): void => {
   execSync(
-    `DISPLAY=:0 notify-send -u normal -i scheduler '${title}' '${message}'`
+    `XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send -u normal -i scheduler '${title}' '${message}'`
   )
 }
 
