@@ -12,7 +12,9 @@ const statsFile = join(process.cwd(), 'stats.json')
  * @param message - message body of the notification
  */
 export const notify = (title: string, message: string): void => {
-  execSync(`DISPLAY=:0 notify-send '${title}' '${message}'`)
+  execSync(
+    `DISPLAY=:0 notify-send -u normal -i scheduler '${title}' '${message}'`
+  )
 }
 
 /**
