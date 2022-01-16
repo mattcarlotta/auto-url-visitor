@@ -4,9 +4,7 @@ import { env } from 'process'
 import { errorMessage, infoMessage } from './loggers'
 import { notify, writeFileResultsToFile } from './utils'
 
-config()
-
-const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
+config({ required: ['DOMAIN', 'LOGIN_NAME', 'LOGIN_PASSWORD', 'URL_ADDRESS'] })
 
 /**
  * Automatically visits a website URL and retrieves some stats.
@@ -18,13 +16,13 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     const page = await browser.newPage()
 
     infoMessage('Attempting to visit website URL...')
-    await page.goto(URL_ADDRESS as string)
+    await page.goto(env.URL_ADDRESS as string)
 
     infoMessage('Filling in username...')
-    await page.fill('input[name="username"]', LOGIN_NAME as string)
+    await page.fill('input[name="username"]', env.LOGIN_NAME as string)
 
     infoMessage('Filling in password...')
-    await page.fill('input[name="password"]', LOGIN_PASSWORD as string)
+    await page.fill('input[name="password"]', env.LOGIN_PASSWORD as string)
 
     infoMessage('Submitting login...')
     await page.click('button[type="submit"]')
@@ -42,8 +40,8 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
 
     infoMessage('Sending desktop notification...')
     notify(
-      `Auto Notification from ${DOMAIN}`,
-      `Your current ${DOMAIN} stats: ${statText.trim()}`
+      `Auto Notification from ${env.DOMAIN}`,
+      `Your current ${env.DOMAIN} stats: ${statText.trim()}`
     )
 
     infoMessage('Writing stats to file...')
@@ -56,7 +54,7 @@ const { DOMAIN, LOGIN_NAME, LOGIN_PASSWORD, URL_ADDRESS } = env
     process.exit(0)
   } catch (err: any) {
     errorMessage(err.toString())
-    notify(`Error Notification from ${DOMAIN}`, err.toString())
+    notify(`Error Notification from ${env.DOMAIN}`, err.toString())
     process.exit(1)
   }
 })()

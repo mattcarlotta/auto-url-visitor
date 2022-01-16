@@ -1,6 +1,6 @@
 {
   "name": "auto-url-visitor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "build/index.mjs",
   "description": "An automated service to visit a website.",
   "repository": "https://github.com/mattcarlotta/auto-url-visitor",
@@ -17,7 +17,7 @@
     "types": "tsc --p ./tsconfig.json"
   },
   "dependencies": {
-    "@noshot/env": "^3.0.0",
+    "@noshot/env": "^3.0.2",
     "chalk": "4",
     "lodash.get": "^4.4.2",
     "typescript": "^4.5.4"

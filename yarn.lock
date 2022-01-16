@@ -35,10 +35,10 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
-"@noshot/env@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@noshot/env/-/env-3.0.0.tgz#42e44811e74b42aa447e286c5f498d8d38dc8d05"
-  integrity sha512-JtNmqEDUxodb8Pzm3Me8UCSKzPWY+S7HEnitOkdnce/2qgYhXG/xR396DwGhyXUfsGFYvAfyqseGdYZhYrFSyQ==
+"@noshot/env@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@noshot/env/-/env-3.0.2.tgz#90acf66f26454f919bdf8df1b496abc19901d545"
+  integrity sha512-CGPH2DTg5xI6L0DEZMvpvQ3q9AZK+KDUgmFafyfXTBX0MVmjPzNVOpr1ULvHVlZxmKGxEQp+F6Yt2vxPcB8+/w==
 
 "@rollup/pluginutils@^4.1.0":
   version "4.1.2"

@@ -8,6 +8,7 @@ An automated service to visit a website using playwright.
 
 ### Installation
 
+- Define the following envs: `DOMAIN`, `LOGIN_NAME`, `LOGIN_PASSWORD`, `URL_ADDRESS` within a root level `.env` file
 - Place the `icon/scheduler.png` into either `.local/share/icons` or `usr/share/icons` (or remove the `-i scheduler` string from the `notify` utility function)
 - Compile the source with `yarn build` or `npm run build`
 - Open a terminal and type `which node` to get the node binary **directory** location
