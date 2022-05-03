@@ -31,7 +31,7 @@ config({ required: ['DOMAIN', 'LOGIN_NAME', 'LOGIN_PASSWORD', 'URL_ADDRESS'] })
     await page.locator('div[title="Achievements"] > span.link').click()
 
     infoMessage('Finding stats...')
-    await page.waitForSelector('table')
+    await page.waitForSelector('table.table-bordered')
 
     infoMessage('Parsing stats...')
     const statsRow = await page.locator('tr.cat3').nth(4)
